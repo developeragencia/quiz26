@@ -6,18 +6,18 @@ export interface ZodiacSign {
 }
 
 export const zodiacSigns: Record<string, ZodiacSign> = {
-  aries: { name: 'Aries', symbol: '♈', dates: [[3, 21], [4, 19]], key: 'aries' },
-  taurus: { name: 'Taurus', symbol: '♉', dates: [[4, 20], [5, 20]], key: 'taurus' },
-  gemini: { name: 'Gemini', symbol: '♊', dates: [[5, 21], [6, 20]], key: 'gemini' },
-  cancer: { name: 'Cancer', symbol: '♋', dates: [[6, 21], [7, 22]], key: 'cancer' },
-  leo: { name: 'Leo', symbol: '♌', dates: [[7, 23], [8, 22]], key: 'leo' },
-  virgo: { name: 'Virgo', symbol: '♍', dates: [[8, 23], [9, 22]], key: 'virgo' },
+  aries: { name: 'Áries', symbol: '♈', dates: [[3, 21], [4, 19]], key: 'aries' },
+  taurus: { name: 'Touro', symbol: '♉', dates: [[4, 20], [5, 20]], key: 'taurus' },
+  gemini: { name: 'Gêmeos', symbol: '♊', dates: [[5, 21], [6, 20]], key: 'gemini' },
+  cancer: { name: 'Câncer', symbol: '♋', dates: [[6, 21], [7, 22]], key: 'cancer' },
+  leo: { name: 'Leão', symbol: '♌', dates: [[7, 23], [8, 22]], key: 'leo' },
+  virgo: { name: 'Virgem', symbol: '♍', dates: [[8, 23], [9, 22]], key: 'virgo' },
   libra: { name: 'Libra', symbol: '♎', dates: [[9, 23], [10, 22]], key: 'libra' },
-  scorpio: { name: 'Scorpio', symbol: '♏', dates: [[10, 23], [11, 21]], key: 'scorpio' },
-  sagittarius: { name: 'Sagittarius', symbol: '♐', dates: [[11, 22], [12, 21]], key: 'sagittarius' },
-  capricorn: { name: 'Capricorn', symbol: '♑', dates: [[12, 22], [1, 19]], key: 'capricorn' },
-  aquarius: { name: 'Aquarius', symbol: '♒', dates: [[1, 20], [2, 18]], key: 'aquarius' },
-  pisces: { name: 'Pisces', symbol: '♓', dates: [[2, 19], [3, 20]], key: 'pisces' }
+  scorpio: { name: 'Escorpião', symbol: '♏', dates: [[10, 23], [11, 21]], key: 'scorpio' },
+  sagittarius: { name: 'Sagitário', symbol: '♐', dates: [[11, 22], [12, 21]], key: 'sagittarius' },
+  capricorn: { name: 'Capricórnio', symbol: '♑', dates: [[12, 22], [1, 19]], key: 'capricorn' },
+  aquarius: { name: 'Aquário', symbol: '♒', dates: [[1, 20], [2, 18]], key: 'aquarius' },
+  pisces: { name: 'Peixes', symbol: '♓', dates: [[2, 19], [3, 20]], key: 'pisces' }
 };
 
 export function calculateZodiac(birthdate: string): ZodiacSign {
@@ -48,25 +48,25 @@ export function calculateZodiac(birthdate: string): ZodiacSign {
 }
 
 export const zodiacMessages: Record<string, string> = {
-  aries: 'Your fiery Aries spirit means you never back down from a challenge! Try again! 🔥',
-  taurus: 'Steady Taurus, your persistence will pay off. Take your time! 🌱',
-  gemini: 'Curious Gemini, use your adaptability to find new strategies! ✨',
-  cancer: 'Intuitive Cancer, trust your feelings and try a different approach! 🌙',
-  leo: 'Confident Leo, your natural charisma will lead you to victory! 👑',
-  virgo: 'Detail-oriented Virgo, analyze the patterns and you\'ll succeed! 🔍',
-  libra: 'Balanced Libra, find harmony between speed and accuracy! ⚖️',
-  scorpio: 'Intense Scorpio, channel your determination into focus! 🦂',
-  sagittarius: 'Adventurous Sagittarius, this is just another quest to conquer! 🏹',
-  capricorn: 'Ambitious Capricorn, step by step you\'ll reach the top! ⛰️',
-  aquarius: 'Innovative Aquarius, think outside the box! 💡',
-  pisces: 'Dreamy Pisces, let your intuition guide you! 🐠'
+  aries: 'Seu espírito fogoso de Áries significa que você nunca recua de um desafio! Tente novamente! 🔥',
+  taurus: 'Firme Touro, sua persistência será recompensada. Vá com calma! 🌱',
+  gemini: 'Curioso Gêmeos, use sua adaptabilidade para encontrar novas estratégias! ✨',
+  cancer: 'Intuitivo Câncer, confie em seus sentimentos e tente uma abordagem diferente! 🌙',
+  leo: 'Confiante Leão, seu carisma natural te levará à vitória! 👑',
+  virgo: 'Detalhista Virgem, analise os padrões e você terá sucesso! 🔍',
+  libra: 'Equilibrado Libra, encontre harmonia entre velocidade e precisão! ⚖️',
+  scorpio: 'Intenso Escorpião, canalize sua determinação para o foco! 🦂',
+  sagittarius: 'Aventureiro Sagitário, esta é apenas mais uma missão para conquistar! 🏹',
+  capricorn: 'Ambicioso Capricórnio, passo a passo você chegará ao topo! ⛰️',
+  aquarius: 'Inovador Aquário, pense fora da caixa! 💡',
+  pisces: 'Sonhador Peixes, deixe sua intuição te guiar! 🐠'
 };
 
 export const playfulTips = [
-  'Sometimes the best things come to those who keep trying! 😉',
-  'Practice makes perfect... and more fun! 💫',
-  'Every expert was once a beginner! 🌟',
-  'The fun is in the journey, not just the destination! 🎯',
-  'Good things come to those who match cards! 🃏',
-  'Your next victory is just one flip away! ✨'
+  'Às vezes as melhores coisas vêm para quem continua tentando! 😉',
+  'A prática leva à perfeição... e mais diversão! 💫',
+  'Todo especialista já foi iniciante! 🌟',
+  'A diversão está na jornada, não apenas no destino! 🎯',
+  'Coisas boas vêm para quem encontra os pares! 🃏',
+  'Sua próxima vitória está a apenas uma virada de distância! ✨'
 ];

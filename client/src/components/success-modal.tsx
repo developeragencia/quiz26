@@ -23,11 +23,11 @@ export default function SuccessModal({
   onClose 
 }: SuccessModalProps) {
   const handleShare = () => {
-    const text = `I just won ${score} points playing Match & Win in ${gameMode === 'romance' ? 'Romance' : 'Spicy'} mode! 🎉`;
+    const text = `Acabei de ganhar ${score} pontos jogando Acerte e Ganhe no modo ${gameMode === 'romance' ? 'Romance' : 'Picante'}! 🎉`;
     
     if (navigator.share) {
       navigator.share({
-        title: 'Match & Win',
+        title: 'Acerte e Ganhe',
         text,
         url: window.location.href,
       });
@@ -46,20 +46,20 @@ export default function SuccessModal({
           </div>
           
           <h3 className="text-2xl font-bold mb-4 text-green-400">
-            Awesome! 🎉
+            Incrível! 🎉
           </h3>
           
           <p className="text-muted-foreground mb-6">
-            You found all the matches! Great job!
+            Você encontrou todos os pares! Ótimo trabalho!
           </p>
           
           <div className="bg-muted rounded-lg p-4 mb-6">
             <div className="text-sm space-y-1">
-              <p>Final Score: <span className="font-bold text-accent">{score}</span></p>
-              <p>Matches Found: <span className="font-bold text-primary">{matches}/3</span></p>
+              <p>Pontuação Final: <span className="font-bold text-accent">{score}</span></p>
+              <p>Pares Encontrados: <span className="font-bold text-primary">{matches}/3</span></p>
             </div>
             <p className="text-sm mt-3 text-green-400 font-medium" data-testid="text-success-message">
-              Congratulations {player.name}! Your {player.zodiacSign.split(' ')[1]} determination paid off! 🌟
+              Parabéns {player.name}! Sua determinação de {player.zodiacSign.split(' ')[1]} valeu a pena! 🌟
             </p>
           </div>
           
@@ -69,14 +69,14 @@ export default function SuccessModal({
               className="flex-1 bg-primary text-primary-foreground hover:opacity-90"
               data-testid="button-play-again"
             >
-              Play Again
+              Jogar Novamente
             </Button>
             <Button
               onClick={handleShare}
               className="flex-1 bg-secondary text-secondary-foreground hover:opacity-90"
               data-testid="button-share"
             >
-              Share
+              Compartilhar
               <Share className="ml-2 h-4 w-4" />
             </Button>
           </div>
