@@ -14,9 +14,9 @@ import { useToast } from "@/hooks/use-toast";
 import { type Player } from "@shared/schema";
 
 const formSchema = z.object({
-  name: z.string().min(2, "Name must be at least 2 characters"),
-  instagram: z.string().min(1, "Instagram handle is required").regex(/^[a-zA-Z0-9._]+$/, "Invalid Instagram handle"),
-  birthdate: z.string().min(1, "Birthdate is required"),
+  name: z.string().min(2, "Nome deve ter pelo menos 2 caracteres"),
+  instagram: z.string().min(1, "Nome de usuário do Instagram é obrigatório").regex(/^[a-zA-Z0-9._]+$/, "Nome de usuário do Instagram inválido"),
+  birthdate: z.string().min(1, "Data de nascimento é obrigatória"),
 });
 
 interface RegistrationFormProps {
@@ -47,8 +47,8 @@ export default function RegistrationForm({ onPlayerRegistered }: RegistrationFor
     onError: (error: any) => {
       toast({
         variant: "destructive",
-        title: "Error",
-        description: error.message || "Failed to register player",
+        title: "Erro",
+        description: error.message || "Falha ao registrar jogador",
       });
     },
   });
@@ -66,8 +66,8 @@ export default function RegistrationForm({ onPlayerRegistered }: RegistrationFor
     if (!zodiac) {
       toast({
         variant: "destructive",
-        title: "Error",
-        description: "Please select a valid birthdate",
+        title: "Erro",
+        description: "Por favor, selecione uma data de nascimento válida",
       });
       return;
     }
@@ -88,9 +88,9 @@ export default function RegistrationForm({ onPlayerRegistered }: RegistrationFor
               <Gamepad className="h-8 w-8 text-primary-foreground" data-testid="gamepad-icon" />
             </div>
             <h1 className="text-3xl font-bold mb-2 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-              Match & Win
+              Acerte e Ganhe
             </h1>
-            <p className="text-muted-foreground">Enter your details to start playing</p>
+            <p className="text-muted-foreground">Digite seus dados para começar a jogar</p>
           </div>
 
           <Form {...form}>
@@ -100,10 +100,10 @@ export default function RegistrationForm({ onPlayerRegistered }: RegistrationFor
                 name="name"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Full Name</FormLabel>
+                    <FormLabel>Nome Completo</FormLabel>
                     <FormControl>
                       <Input 
-                        placeholder="Enter your name" 
+                        placeholder="Digite seu nome" 
                         data-testid="input-name"
                         className="bg-input border-border focus:ring-ring" 
                         {...field} 
@@ -119,14 +119,14 @@ export default function RegistrationForm({ onPlayerRegistered }: RegistrationFor
                 name="instagram"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Instagram Handle</FormLabel>
+                    <FormLabel>Usuário do Instagram</FormLabel>
                     <FormControl>
                       <div className="relative">
                         <span className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground">
                           @
                         </span>
                         <Input 
-                          placeholder="username" 
+                          placeholder="nomedeusuario" 
                           data-testid="input-instagram"
                           className="pl-8 bg-input border-border focus:ring-ring" 
                           {...field} 
@@ -143,7 +143,7 @@ export default function RegistrationForm({ onPlayerRegistered }: RegistrationFor
                 name="birthdate"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Date of Birth</FormLabel>
+                    <FormLabel>Data de Nascimento</FormLabel>
                     <FormControl>
                       <Input 
                         type="date" 
@@ -165,7 +165,7 @@ export default function RegistrationForm({ onPlayerRegistered }: RegistrationFor
                 <div className="bg-muted rounded-lg p-4 text-center" data-testid="zodiac-display">
                   <div className="zodiac-icon mb-2 text-4xl">{zodiac.symbol}</div>
                   <p className="text-sm">
-                    Your zodiac sign: <span className="font-semibold text-accent">{zodiac.name}</span>
+                    Seu signo: <span className="font-semibold text-accent">{zodiac.name}</span>
                   </p>
                 </div>
               )}
@@ -176,7 +176,7 @@ export default function RegistrationForm({ onPlayerRegistered }: RegistrationFor
                 className="w-full bg-gradient-to-r from-primary to-secondary text-primary-foreground hover:opacity-90 transition-all transform hover:scale-105"
                 disabled={createPlayerMutation.isPending}
               >
-                {createPlayerMutation.isPending ? "Starting..." : "Start Playing"}
+                {createPlayerMutation.isPending ? "Iniciando..." : "Começar a Jogar"}
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
             </form>
