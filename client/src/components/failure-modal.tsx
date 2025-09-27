@@ -1,7 +1,7 @@
 import { ThumbsDown } from "lucide-react";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
-import { zodiacMessages, playfulTips } from "@/lib/zodiac";
+import { zodiacMessages, playfulTips, zodiacSigns } from "@/lib/zodiac";
 import { type Player } from "@shared/schema";
 
 type GameMode = 'romance' | 'spicy';
@@ -25,7 +25,10 @@ export default function FailureModal({
   onChangeMode, 
   onClose 
 }: FailureModalProps) {
-  const zodiacKey = player.zodiacSign.split(' ')[1]?.toLowerCase() || 'aries';
+  // Extract the zodiac name from the display string (e.g., "♌ Leão" -> "Leão")
+  const zodiacDisplayName = player.zodiacSign.split(' ')[1] || '';
+  // Find the zodiac key by matching the Portuguese name
+  const zodiacKey = Object.values(zodiacSigns).find(sign => sign.name === zodiacDisplayName)?.key || 'aries';
   const zodiacMessage = zodiacMessages[zodiacKey] || zodiacMessages.aries;
   const randomTip = playfulTips[Math.floor(Math.random() * playfulTips.length)];
 

@@ -91,17 +91,18 @@ export default function CardMatchingGame({ player, gameMode, onGameWon, onGameLo
     setFlippedCards(newFlippedCards);
 
     if (newFlippedCards.length === 2) {
-      setAttempts(prev => prev + 1);
+      const newAttempts = attempts + 1;
+      setAttempts(newAttempts);
       setIsChecking(true);
       
       setTimeout(() => {
-        checkForMatch(newFlippedCards);
+        checkForMatch(newFlippedCards, newAttempts);
         setIsChecking(false);
       }, 1000);
     }
   };
 
-  const checkForMatch = (flippedCardIds: number[]) => {
+  const checkForMatch = (flippedCardIds: number[], currentAttempts: number = attempts) => {
     const [card1Id, card2Id] = flippedCardIds;
     const card1 = cards.find(c => c.id === card1Id);
     const card2 = cards.find(c => c.id === card2Id);
@@ -128,7 +129,7 @@ export default function CardMatchingGame({ player, gameMode, onGameWon, onGameLo
       }
     } else {
       // No match
-      if (attempts >= 5) {
+      if (currentAttempts >= 5) {
         // Game over after too many attempts
         saveGameResultMutation.mutate({
           playerId: player.id,
