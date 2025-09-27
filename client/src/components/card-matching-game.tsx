@@ -162,13 +162,13 @@ export default function CardMatchingGame({ player, gameMode, onGameWon, onGameLo
       });
 
       toast({
-        title: "Hint",
-        description: "Look for the highlighted cards!",
+        title: "Dica",
+        description: "Procure pelas cartas destacadas!",
       });
     }
   };
 
-  const modeName = gameMode === 'romance' ? 'Romance Mode' : 'Spicy Mode';
+  const modeName = gameMode === 'romance' ? 'Modo Romance' : 'Modo Picante';
   const playerInitial = player.name.charAt(0).toUpperCase();
 
   return (
@@ -197,15 +197,15 @@ export default function CardMatchingGame({ player, gameMode, onGameWon, onGameLo
                 <div className="flex items-center space-x-4">
                   <div className="text-center">
                     <p className="text-2xl font-bold text-accent" data-testid="text-score">{score}</p>
-                    <p className="text-xs text-muted-foreground">Score</p>
+                    <p className="text-xs text-muted-foreground">Pontos</p>
                   </div>
                   <div className="text-center">
                     <p className="text-2xl font-bold text-primary" data-testid="text-matches">{matches}/3</p>
-                    <p className="text-xs text-muted-foreground">Matches</p>
+                    <p className="text-xs text-muted-foreground">Pares</p>
                   </div>
                   <div className="text-center">
                     <p className="text-2xl font-bold text-secondary" data-testid="text-attempts">{attempts}/5</p>
-                    <p className="text-xs text-muted-foreground">Attempts</p>
+                    <p className="text-xs text-muted-foreground">Tentativas</p>
                   </div>
                 </div>
               </div>
@@ -217,7 +217,7 @@ export default function CardMatchingGame({ player, gameMode, onGameWon, onGameLo
         <div className="bg-muted rounded-lg p-4 mb-8 border-l-4 border-accent">
           <p className="text-sm">
             <Info className="inline h-4 w-4 text-accent mr-2" />
-            Find 3 matching pairs to win! You have 5 attempts. Click cards to flip them over and reveal the symbols.
+            Encontre 3 pares iguais para ganhar! Você tem 5 tentativas. Clique nas cartas para virá-las e revelar os símbolos.
           </p>
         </div>
 
@@ -256,7 +256,7 @@ export default function CardMatchingGame({ player, gameMode, onGameWon, onGameLo
             data-testid="button-hint"
           >
             <Lightbulb className="mr-2 h-4 w-4" />
-            Hint
+            Dica
           </Button>
           <Button
             variant="outline"
@@ -265,7 +265,7 @@ export default function CardMatchingGame({ player, gameMode, onGameWon, onGameLo
             data-testid="button-restart"
           >
             <RotateCcw className="mr-2 h-4 w-4" />
-            New Game
+            Novo Jogo
           </Button>
         </div>
       </div>
