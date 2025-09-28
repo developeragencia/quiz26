@@ -7,15 +7,12 @@ export default defineConfig({
   plugins: [
     react(),
     runtimeErrorOverlay(),
-    ...(process.env.NODE_ENV !== "production" &&
-    process.env.REPL_ID !== undefined
+    // Plugins abaixo são apenas para ambiente de desenvolvimento Replit
+    ...(process.env.NODE_ENV !== "production" && process.env.REPL_ID
       ? [
-          await import("@replit/vite-plugin-cartographer").then((m) =>
-            m.cartographer(),
-          ),
-          await import("@replit/vite-plugin-dev-banner").then((m) =>
-            m.devBanner(),
-          ),
+          // Evita await/then para compatibilidade Vercel
+          require("@replit/vite-plugin-cartographer").cartographer(),
+          require("@replit/vite-plugin-dev-banner").devBanner(),
         ]
       : []),
   ],
